@@ -1,0 +1,22 @@
+# Unity-generated files
+[Ll]ibrary
+[Tt]emp
+[Oo]bj
+[Bb]uild
+[Bb]uilds
+[Ll]ogs
+MemoryCaptures
+*.csproj
+*.unityproj
+*.sln
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+
+# Visual Studio Code
+*.vscode
+
+# Rider
+*.idea
+*.sln.iml
