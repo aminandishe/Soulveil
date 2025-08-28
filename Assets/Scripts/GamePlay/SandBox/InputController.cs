@@ -1,15 +1,22 @@
-using Core.BlackBoards;
+using Core.Models.Systems.Data.Player;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 namespace GamePlay.SandBox
 {
     public class InputController : MonoBehaviour
     {
-        [Inject] private PlayerBlackboard _playerBlackboard;
+        [SerializeField] private Button button;
+        [Inject] PlayerMovementSystemData _playerMovementSystemData;
+
         private void Start()
         {
-            Debug.Log(_playerBlackboard);
+            button.onClick.AddListener(() =>
+            {
+                _playerMovementSystemData.xOffset = .5f;
+                _playerMovementSystemData.yOffset = .2f; 
+            });
         }
     }
 }

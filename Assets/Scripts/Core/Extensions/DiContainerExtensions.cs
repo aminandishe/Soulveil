@@ -1,8 +1,8 @@
-using Core.BlackBoards;
 using Core.Containers;
 using Core.Events;
-using Core.Models.Systems.Data.Abstractions;
 using Core.Models.Systems.Data.Player;
+using Core.Systems.Abstractions;
+using Core.Systems.Player;
 using Zenject;
 
 namespace Core.Extensions
@@ -12,7 +12,7 @@ namespace Core.Extensions
         public static void InstallCore(this DiContainer container)
         {
             BindContainers(container);
-            BindBlackboards(container);
+            BindSystems(container);
             BindSystemData(container);
             BindEvents(container);
         }
@@ -23,9 +23,9 @@ namespace Core.Extensions
             container.Bind<SystemContainer>().AsSingle();
         }
 
-        private static void BindBlackboards(DiContainer container)
+        private static void BindSystems(DiContainer container)
         {
-            container.Bind<PlayerBlackboard>().AsSingle();
+            container.Bind<GeneralSystem>().To<PlayerMovementGeneralSystem>().AsSingle();
         }
         
         private static void BindSystemData(DiContainer container)
@@ -35,7 +35,7 @@ namespace Core.Extensions
 
         private static void BindEvents(DiContainer container)
         {
-            container.BindInterfacesAndSelfTo<EventBus>();
+            container.BindInterfacesAndSelfTo<EventBus>().AsSingle();
         }
     }
 }
