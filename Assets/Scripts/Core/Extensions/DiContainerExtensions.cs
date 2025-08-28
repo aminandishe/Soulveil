@@ -1,5 +1,6 @@
 using Core.BlackBoards;
 using Core.Containers;
+using Core.Events;
 using Core.Models.Systems.Data.Abstractions;
 using Core.Models.Systems.Data.Player;
 using Zenject;
@@ -13,6 +14,7 @@ namespace Core.Extensions
             BindContainers(container);
             BindBlackboards(container);
             BindSystemData(container);
+            BindEvents(container);
         }
 
         private static void BindContainers(DiContainer container)
@@ -29,6 +31,11 @@ namespace Core.Extensions
         private static void BindSystemData(DiContainer container)
         {
             container.BindInterfacesAndSelfTo<PlayerMovementSystemData>().AsSingle();    
+        }
+
+        private static void BindEvents(DiContainer container)
+        {
+            container.BindInterfacesAndSelfTo<EventBus>();
         }
     }
 }
