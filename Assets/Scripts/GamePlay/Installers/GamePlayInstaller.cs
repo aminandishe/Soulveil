@@ -1,5 +1,4 @@
 using Core.Extensions;
-using GamePlay.Handlers;
 using Zenject;
 
 namespace GamePlay.Installers
@@ -9,8 +8,6 @@ namespace GamePlay.Installers
         public override void InstallBindings()
         {
             Container.InstallCore();
-
-            Container.Bind<PlayerMovementConfigHandler>().AsSingle();
         }
     }
 }

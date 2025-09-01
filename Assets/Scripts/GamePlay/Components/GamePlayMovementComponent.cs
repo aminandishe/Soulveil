@@ -2,7 +2,7 @@ using Core.Components;
 using Core.Events;
 using Core.Events.PlayerEvents;
 using GamePlay.Components.Abstractions;
-using GamePlay.Handlers;
+using GamePlay.Configs;
 using UnityEngine;
 using Zenject;
 
@@ -11,7 +11,7 @@ namespace GamePlay.Components
     public class GamePlayMovementComponent : GamePlayBaseComponent
     {
         [Inject] private readonly EventBus _eventBus;
-        [Inject] private readonly PlayerMovementConfigHandler _playerMovementConfigHandler;
+        [Inject] private readonly PlayerMovementConfig _playerMovementConfig;
 
         private void Awake()
         {
@@ -25,7 +25,7 @@ namespace GamePlay.Components
 
         private void Start()
         {
-            ((CoreMovementComponent)CoreBaseComponent).MoveSpeed = _playerMovementConfigHandler.GetMovementSpeed();
+            ((CoreMovementComponent)CoreBaseComponent).MoveSpeed = _playerMovementConfig.MoveSpeed;
         }
 
         private void AddListeners()

@@ -1,5 +1,4 @@
 using Core.Models.Systems.Data.Player;
-using GamePlay.Handlers;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Zenject;
@@ -8,7 +7,6 @@ namespace GamePlay.Controllers
 {
     public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
     {
-        [Inject] private readonly PlayerMovementConfigHandler _playerMovementConfigHandler;
         
         [SerializeField] private RectTransform handle;
         [SerializeField] private float handleRange = 100f;
