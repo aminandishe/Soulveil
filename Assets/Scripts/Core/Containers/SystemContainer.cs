@@ -6,26 +6,26 @@ namespace Core.Containers
 {
     public class SystemContainer
     {
-        private readonly List<StarterGamePlaySystem> _starterSystems;
-        private readonly List<GeneralGamePlaySystem> _generalSystems;
-        private readonly List<EndingGamePlaySystem> _endingSystems;
-        private readonly List<GeneralGamePlaySystem> _activeSystems;
-        private readonly List<GeneralGamePlaySystem> _systemsToActive;
-        private readonly List<GeneralGamePlaySystem> _systemsToDeActive;
+        private readonly List<StarterSystem> _starterSystems;
+        private readonly List<GeneralSystem> _generalSystems;
+        private readonly List<EndingSystem> _endingSystems;
+        private readonly List<GeneralSystem> _activeSystems;
+        private readonly List<GeneralSystem> _systemsToActive;
+        private readonly List<GeneralSystem> _systemsToDeActive;
 
-        private readonly Dictionary<GeneralGamePlaySystem, int> _systemOrderings;
+        private readonly Dictionary<GeneralSystem, int> _systemOrderings;
 
         public SystemContainer(
-            StarterGamePlaySystem[] starterGamePlaySystems,
-            GeneralGamePlaySystem[] generalGamePlaySystems)
+            StarterSystem[] starterGamePlaySystems,
+            GeneralSystem[] generalGamePlaySystems)
         {
-            _activeSystems = new List<GeneralGamePlaySystem>();
-            _systemsToActive = new List<GeneralGamePlaySystem>();
-            _systemsToDeActive = new List<GeneralGamePlaySystem>();
-            _starterSystems = new List<StarterGamePlaySystem>(starterGamePlaySystems);
+            _activeSystems = new List<GeneralSystem>();
+            _systemsToActive = new List<GeneralSystem>();
+            _systemsToDeActive = new List<GeneralSystem>();
+            _starterSystems = new List<StarterSystem>(starterGamePlaySystems);
 
-            _generalSystems = new List<GeneralGamePlaySystem>(generalGamePlaySystems);
-            _systemOrderings = new Dictionary<GeneralGamePlaySystem, int>();
+            _generalSystems = new List<GeneralSystem>(generalGamePlaySystems);
+            _systemOrderings = new Dictionary<GeneralSystem, int>();
 
             StoreSystemsOrderings();
         }
@@ -92,19 +92,19 @@ namespace Core.Containers
             _systemsToDeActive.Clear();
         }
 
-        public void ActiveSystem<T>() where T : GeneralGamePlaySystem
+        public void ActiveSystem<T>() where T : GeneralSystem
         {
             var system = GetSystem<T>();
             _systemsToActive.Add(system);
         }
 
-        public void DeactivateSystem<T>() where T : GeneralGamePlaySystem
+        public void DeactivateSystem<T>() where T : GeneralSystem
         {
             var system = _generalSystems.Where(gs => gs is T).ToList();
             _systemsToDeActive.AddRange(system);
         }
 
-        private T GetSystem<T>() where T : GeneralGamePlaySystem
+        private T GetSystem<T>() where T : GeneralSystem
         {
             foreach (var system in _generalSystems)
             {
