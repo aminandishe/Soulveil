@@ -1,6 +1,6 @@
 ﻿namespace Core.Systems.Abstractions
 {
-    public abstract class GeneralGamePlaySystem : BaseGamePlaySystem
+    public abstract class GeneralSystem : BaseSystem
     {
         public virtual void Update() {}
     }
