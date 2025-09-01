@@ -13,22 +13,14 @@ namespace GamePlay.Components
         [Inject] private readonly EventBus _eventBus;
         [Inject] private readonly PlayerMovementConfig _playerMovementConfig;
 
-        private void Awake()
+        [Inject]
+        public void Construct(CoreMovementComponent coreMovementComponent)
         {
-            CoreBaseComponent = new CoreMovementComponent();
+            CoreBaseComponent = coreMovementComponent;
+            coreMovementComponent.MoveSpeed = _playerMovementConfig.MoveSpeed;
         }
 
         private void OnEnable()
-        {
-            AddListeners();
-        }
-
-        private void Start()
-        {
-            ((CoreMovementComponent)CoreBaseComponent).MoveSpeed = _playerMovementConfig.MoveSpeed;
-        }
-
-        private void AddListeners()
         {
             _eventBus.Subscribe<PlayerMovedEvent>(PlayerMoved);
         }

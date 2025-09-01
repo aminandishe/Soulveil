@@ -7,14 +7,12 @@ namespace GamePlay.Models
 {
     public class GamePlayPlayerModel : GamePlayBaseModel
     {
-        [Inject] private CorePlayerModel _corePlayerModel;
-        private void Awake()
+        
+        [Inject]
+        public void Construct(CorePlayerModel corePlayerModel)
         {
-            CoreBaseModel = _corePlayerModel;
-        }
-
-        private void Start()
-        {
+            CoreBaseModel = corePlayerModel;
+            
             AddComponents();
         }
 

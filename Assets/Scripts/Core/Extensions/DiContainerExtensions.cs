@@ -1,3 +1,4 @@
+using Core.Components;
 using Core.Containers;
 using Core.Events;
 using Core.Models;
@@ -17,6 +18,7 @@ namespace Core.Extensions
             BindSystemData(container);
             BindEvents(container);
             BindModels(container);
+            BindComponents(container);
         }
 
         private static void BindContainers(DiContainer container)
@@ -43,6 +45,11 @@ namespace Core.Extensions
         private static void BindModels(DiContainer container)
         {
             container.Bind<CorePlayerModel>().AsSingle();
+        }
+
+        private static void BindComponents(DiContainer container)
+        {
+            container.Bind<CoreMovementComponent>().AsTransient();
         }
     }
 }
