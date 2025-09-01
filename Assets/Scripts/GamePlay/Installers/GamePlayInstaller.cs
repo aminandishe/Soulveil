@@ -2,7 +2,7 @@ using Core.Extensions;
 using GamePlay.Handlers;
 using Zenject;
 
-namespace GamePlay.SandBox
+namespace GamePlay.Installers
 {
     public class GamePlayInstaller : MonoInstaller<GamePlayInstaller>
     {
