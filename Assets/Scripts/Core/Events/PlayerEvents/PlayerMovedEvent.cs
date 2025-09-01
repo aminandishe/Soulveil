@@ -2,13 +2,13 @@ namespace Core.Events.PlayerEvents
 {
     public class PlayerMovedEvent
     {
-        public float xOffset { get; }
-        public float yOffset { get; }
+        public float X { get; }
+        public float Y { get; }
 
-        public PlayerMovedEvent(float xOffset, float yOffset)
+        public PlayerMovedEvent(float x, float y)
         {
-            this.xOffset = xOffset;
-            this.yOffset = yOffset;
+            X = x;
+            Y = y;
         }
     }
 }

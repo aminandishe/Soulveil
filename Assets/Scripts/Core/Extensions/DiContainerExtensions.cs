@@ -1,5 +1,6 @@
 using Core.Containers;
 using Core.Events;
+using Core.Models;
 using Core.Models.Systems.Data.Player;
 using Core.Systems.Abstractions;
 using Core.Systems.Player;
@@ -15,6 +16,7 @@ namespace Core.Extensions
             BindSystems(container);
             BindSystemData(container);
             BindEvents(container);
+            BindModels(container);
         }
 
         private static void BindContainers(DiContainer container)
@@ -36,6 +38,11 @@ namespace Core.Extensions
         private static void BindEvents(DiContainer container)
         {
             container.BindInterfacesAndSelfTo<EventBus>().AsSingle();
+        }
+
+        private static void BindModels(DiContainer container)
+        {
+            container.Bind<CorePlayerModel>().AsSingle();
         }
     }
 }

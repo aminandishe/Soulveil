@@ -1,4 +1,5 @@
 using Core.Extensions;
+using GamePlay.Handlers;
 using Zenject;
 
 namespace GamePlay.SandBox
@@ -8,6 +9,8 @@ namespace GamePlay.SandBox
         public override void InstallBindings()
         {
             Container.InstallCore();
+
+            Container.Bind<PlayerMovementConfigHandler>().AsSingle();
         }
     }
 }
