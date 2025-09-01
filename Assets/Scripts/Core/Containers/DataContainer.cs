@@ -1,28 +1,27 @@
 using System.Linq;
 using Core.BlackBoards;
 using Core.Models.Systems.Data.Abstractions;
-using Core.Models.Systems.Data.Player.Abstraction;
 
 namespace Core.Containers
 {
     public class DataContainer
     {
-        private readonly PlayerBlackboard _playerBlackboard;
+        private readonly BlackBoard<ISystemData> _frameBaseBlackBoard;
 
         public DataContainer(
-            IPlayerSystemData[] systemData)
+            ISystemData[] systemData)
         {
-            _playerBlackboard = new PlayerBlackboard(systemData);
+            _frameBaseBlackBoard = new BlackBoard<ISystemData>(systemData);
         }
 
         public void Clear()
         {
-            _playerBlackboard.Clear();
+            _frameBaseBlackBoard.Clear();
         }
 
         public T GetData<T>() where T : ISystemData
         {
-            var result = _playerBlackboard.FirstOrDefault(data => data.GetType() == typeof(T));
+            var result = _frameBaseBlackBoard.FirstOrDefault(data => data.GetType() == typeof(T));
             if (result != default)
                 return (T)result;
 

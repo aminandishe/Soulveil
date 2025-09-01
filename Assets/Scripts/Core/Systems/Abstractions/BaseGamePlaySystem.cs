@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Core.Systems.Abstractions
 {
-    public abstract class BaseSystem
+    public abstract class BaseGamePlaySystem
     {
         public virtual void OnActivated() { }
         public virtual void OnDeActivated(){ }

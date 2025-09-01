@@ -1,6 +1,6 @@
 ﻿namespace Core.Systems.Abstractions
 {
-    public abstract class StarterSystem : BaseSystem
+    public abstract class StarterGamePlaySystem : BaseGamePlaySystem
     {
         public virtual void Start() {}
     }
