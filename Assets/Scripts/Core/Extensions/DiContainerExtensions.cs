@@ -1,6 +1,7 @@
 using Core.Components;
 using Core.Containers;
 using Core.Events;
+using Core.Models.Enemies;
 using Core.Models.Players;
 using Core.Models.Systems.Data.Player;
 using Core.Systems.Abstractions;
@@ -31,10 +32,10 @@ namespace Core.Extensions
         {
             container.Bind<GeneralSystem>().To<PlayerMovementGeneralSystem>().AsSingle();
         }
-        
+
         private static void BindSystemData(DiContainer container)
         {
-            container.BindInterfacesAndSelfTo<PlayerMovementSystemData>().AsSingle();    
+            container.BindInterfacesAndSelfTo<PlayerMovementSystemData>().AsSingle();
         }
 
         private static void BindEvents(DiContainer container)
@@ -45,6 +46,7 @@ namespace Core.Extensions
         private static void BindModels(DiContainer container)
         {
             container.Bind<CorePlayerModel>().AsSingle();
+            container.Bind<CoreNormalEnemy>().AsTransient();
         }
 
         private static void BindComponents(DiContainer container)
