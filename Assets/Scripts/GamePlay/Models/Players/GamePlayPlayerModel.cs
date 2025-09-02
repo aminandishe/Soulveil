@@ -2,7 +2,7 @@ using Core.Models.Players;
 using GamePlay.Models.Abstractions;
 using Zenject;
 
-namespace GamePlay.Models
+namespace GamePlay.Models.Players
 {
     public class GamePlayPlayerModel : GamePlayBaseModel
     {
