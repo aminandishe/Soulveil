@@ -1,8 +1,6 @@
 using System.Collections.Generic;
-using System.Linq;
 using Core.Models.Systems.Data.Abstractions;
 using Core.Models.Systems.Data.Player.Abstraction;
-using UnityEngine;
 
 namespace Core.BlackBoards
 {
@@ -10,7 +8,6 @@ namespace Core.BlackBoards
     {
         public PlayerBlackboard(IEnumerable<IPlayerSystemData> playerSystemData) : base(playerSystemData)
         {
-            Debug.Log(playerSystemData.ToList().Count);
         }
     }
 }
