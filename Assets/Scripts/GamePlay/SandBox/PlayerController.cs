@@ -1,5 +1,4 @@
 using Core.Events;
-using Core.Events.PlayerEvents;
 using UnityEngine;
 using Zenject;
 
@@ -13,7 +12,7 @@ namespace GamePlay.SandBox
         
         private void Start()
         {
-            _eventBus.Subscribe<PlayerMovedEvent>(playerMovedEvent =>
+            _eventBus.Subscribe<MovementEvent>(playerMovedEvent =>
             {
                 var xOffset = playerMovedEvent.X * movementSpeed;
                 var yOffset = playerMovedEvent.Y * movementSpeed;
