@@ -1,6 +1,6 @@
 using Core.Models.Abstractions;
 
-namespace Core.Models
+namespace Core.Models.Players
 {
     public class CorePlayerModel : CoreBaseModel
     {

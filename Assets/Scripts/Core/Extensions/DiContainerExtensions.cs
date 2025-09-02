@@ -1,7 +1,7 @@
 using Core.Components;
 using Core.Containers;
 using Core.Events;
-using Core.Models;
+using Core.Models.Players;
 using Core.Models.Systems.Data.Player;
 using Core.Systems.Abstractions;
 using Core.Systems.Player;

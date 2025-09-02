@@ -1,4 +1,4 @@
-using Core.Models;
+using Core.Models.Players;
 using GamePlay.Components.Abstractions;
 using GamePlay.Models.Abstractions;
 using Zenject;
