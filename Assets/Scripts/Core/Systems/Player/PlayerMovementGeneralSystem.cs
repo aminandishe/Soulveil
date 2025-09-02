@@ -1,7 +1,5 @@
 using System;
 using Core.Components;
-using Core.Events;
-using Core.Events.PlayerEvents;
 using Core.Models.Players;
 using Core.Models.Systems.Data.Player;
 using Core.Systems.Abstractions;
@@ -10,15 +8,12 @@ namespace Core.Systems.Player
 {
     public class PlayerMovementGeneralSystem : GeneralSystem
     {
-        private readonly EventBus _eventBus;
         private readonly PlayerMovementSystemData _playerMovementSystemData;
         private readonly CorePlayerModel _corePlayerModel;
 
-        public PlayerMovementGeneralSystem(EventBus eventBus,
-            PlayerMovementSystemData playerMovementSystemData,
+        public PlayerMovementGeneralSystem(PlayerMovementSystemData playerMovementSystemData,
             CorePlayerModel corePlayerModel)
         {
-            _eventBus = eventBus;
             _playerMovementSystemData = playerMovementSystemData;
             _corePlayerModel = corePlayerModel;
         }
@@ -35,10 +30,9 @@ namespace Core.Systems.Player
             if (movementComponent == null)
                 throw new Exception("CoreMovementComponent is null");
 
-            movementComponent.X += xOffset * movementComponent.MoveSpeed;
-            movementComponent.Y += yOffset * movementComponent.MoveSpeed;
-
-            _eventBus.Publish(new PlayerMovedEvent(movementComponent.X, movementComponent.Y));
+            movementComponent.X += xOffset * movementComponent.MovementSpeed;
+            movementComponent.Y += yOffset * movementComponent.MovementSpeed;
+            movementComponent.RaiseMoved();
         }
     }
 }

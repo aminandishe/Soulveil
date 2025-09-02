@@ -1,8 +1,6 @@
 using Core.Components;
 using Core.Events;
-using Core.Events.PlayerEvents;
 using GamePlay.Components.Abstractions;
-using GamePlay.Configs;
 using UnityEngine;
 using Zenject;
 
@@ -10,26 +8,26 @@ namespace GamePlay.Components
 {
     public class GamePlayMovementComponent : GamePlayBaseComponent
     {
-        [Inject] private readonly EventBus _eventBus;
-        [Inject] private readonly PlayerMovementConfig _playerMovementConfig;
+        private CoreMovementComponent _coreMovementComponent;
 
         [Inject]
         public void Construct(CoreMovementComponent coreMovementComponent)
         {
             CoreBaseComponent = coreMovementComponent;
-            coreMovementComponent.MoveSpeed = _playerMovementConfig.MoveSpeed;
+            _coreMovementComponent = coreMovementComponent;
+            _coreMovementComponent.Moved += PlayerMoved;
         }
 
-        private void OnEnable()
+        public void SetMovementSpeed(float movementSpeed)
         {
-            _eventBus.Subscribe<PlayerMovedEvent>(PlayerMoved);
+            _coreMovementComponent.MovementSpeed = movementSpeed;
         }
 
-        private void PlayerMoved(PlayerMovedEvent playerMovedEvent)
+        private void PlayerMoved(MovementEvent movementEvent)
         {
-            var x = playerMovedEvent.X;
+            var x = movementEvent.X;
             var y = transform.position.y;
-            var z = playerMovedEvent.Y;
+            var z = movementEvent.Y;
 
             transform.position = new Vector3(x, y, z);
         }

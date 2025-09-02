@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0265d75cea14528a3bcc4d89c87bc47, type: 3}
   m_Name: ConfigsInstaller
   m_EditorClassIdentifier: Assembly-CSharp::GamePlay.Installers.ConfigsInstaller
-  playerMovementConfig: {fileID: 11400000, guid: 09766225f2ef4a94fa007e786a8a73fc, type: 2}
+  playerConfig: {fileID: 11400000, guid: 09766225f2ef4a94fa007e786a8a73fc, type: 2}

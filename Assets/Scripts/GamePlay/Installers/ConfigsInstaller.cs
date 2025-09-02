@@ -7,11 +7,11 @@ namespace GamePlay.Installers
     [CreateAssetMenu(fileName = "ConfigsInstaller", menuName = "Installers/ConfigsInstaller")]
     public class ConfigsInstaller : ScriptableObjectInstaller<ConfigsInstaller>
     {
-        [SerializeField] private PlayerMovementConfig playerMovementConfig;
+        [SerializeField] private PlayerConfig playerConfig;
 
         public override void InstallBindings()
         {
-            Container.Bind<PlayerMovementConfig>().FromInstance(playerMovementConfig).AsSingle();
+            Container.Bind<PlayerConfig>().FromInstance(playerConfig).AsSingle();
         }
     }
 }
