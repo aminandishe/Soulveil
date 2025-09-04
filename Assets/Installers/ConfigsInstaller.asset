@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: ConfigsInstaller
   m_EditorClassIdentifier: Assembly-CSharp::GamePlay.Installers.ConfigsInstaller
   playerConfig: {fileID: 11400000, guid: 09766225f2ef4a94fa007e786a8a73fc, type: 2}
+  waveConfig: {fileID: 11400000, guid: 4afafdcda559d734d8bcff5d0a7a6c83, type: 2}

@@ -1,4 +1,5 @@
 using Core.Extensions;
+using GamePlay.Services;
 using Zenject;
 
 namespace GamePlay.Installers
@@ -8,6 +9,8 @@ namespace GamePlay.Installers
         public override void InstallBindings()
         {
             Container.InstallCore();
+
+            Container.Bind<EnemySpawnerService>().AsSingle();
         }
     }
 }
