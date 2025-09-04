@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a31afcba0ed41a496c139f36d5792e6, type: 3}
   m_Name: PlayerConfig
   m_EditorClassIdentifier: Assembly-CSharp::GamePlay.Configs.PlayerMovementConfig
-  movementSpeed: 0.01
+  movementSpeed: 0.02
